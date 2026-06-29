@@ -3,40 +3,31 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
 use Illuminate\Database\Seeder;
-use App\Models\Mahasiswa;
+use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 
-class DatabaseSeeder extends Seeder{
+class DatabaseSeeder extends Seeder
+{
     public function run(): void
     {
+        // 1. Jalankan Sub-Seeder Master Berurutan (Penting untuk menjaga integritas foreign key)
         $this->call([
+            RoleSeeder::class,
             DosenSeeder::class,
-            MatakuliahSeeder::class,
             MahasiswaSeeder::class,
+            MatakuliahSeeder::class,
             JadwalSeeder::class,
         ]);
 
-        $roleAdmin = Role::create(['name' => 'admin']);
-        $roleMahasiswa = Role::create(['name' => 'mahasiswa']);
-
+        // 2. Tambah Akun Admin Utama Langsung di Sini
+        $adminRole = Role::where('name','admin')->first();
         $adminUser = User::create([
-            'name' => 'Administrator SIAKAD',
+            'name' => 'Admin SIAKAD',
             'email' => 'admin@siakad.com',
-            'password' => bcrypt('password123'),
+            'password' => Hash::make('password'),
         ]);
-        $adminUser->assignRole($roleAdmin);
-
-        $mahasiswaData = Mahasiswa::first();
-
-        if ($mahasiswaData) {
-            $mahasiswaUser = User::create([
-                'name' => $mahasiswaData->nama,
-                'email' => 'mahasiswa@siakad.com',
-                'password' => bcrypt('password123'),
-            ]);
-            $mahasiswaUser->assignRole($roleMahasiswa);
-        }
+        $adminUser->assignRole($adminRole);
     }
 }

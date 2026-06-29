@@ -16,7 +16,6 @@ class Jadwal extends Model
     ];
 
     public function dosen(){
-        // BelongsTo karena tabel jadwal menyimpan 'nidn'
         return $this->belongsTo(Dosen::class, 'nidn', 'nidn');
     }
 

@@ -2,23 +2,22 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
 use App\Models\Dosen;
+use Illuminate\Database\Seeder;
 
 class DosenSeeder extends Seeder
 {
     public function run(): void
     {
-        $dosen = [
-            ['nidn' => '0412038901', 'nama' => 'Ir. Ahmad Subarjo, M.T.'],
-            ['nidn' => '0415088502', 'nama' => 'Siti Aminah, S.Kom., M.Kom.'],
-            ['nidn' => '0422119003', 'nama' => 'Budi Raharjo, Ph.D.'],
-            ['nidn' => '0405028204', 'nama' => 'Diana Lestari, M.C.S.'],
-            ['nidn' => '0419067805', 'nama' => 'Eko Prasetyo, M.Eng.'],
+        $dataDosen = [
+            ['nidn' => '0412038901', 'nama' => 'Dr. Agus Teja, M.T.'],
+            ['nidn' => '0415068202', 'nama' => 'Rina Wijaya, M.Kom.'],
+            ['nidn' => '0422098503', 'nama' => 'Budi Setiawan, M.Sc.'],
+            ['nidn' => '0408117904', 'nama' => 'Siti Aminah, M.T.'],
+            ['nidn' => '0430019105', 'nama' => 'Dedi Kurniawan, M.Kom.'],
         ];
 
-        foreach ($dosen as $d) {
+        foreach ($dataDosen as $d) {
             Dosen::create($d);
         }
     }

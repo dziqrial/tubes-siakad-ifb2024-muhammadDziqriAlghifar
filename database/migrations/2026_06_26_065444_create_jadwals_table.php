@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('nidn', 10); //fk ke dosen
             $table->char('kelas', 1);
             $table->string('hari', 10);
-            $table->timestamp('jam');
+            $table->time('jam');
             $table->timestamps();
 
             $table->foreign('kode_matakuliah')->references('kode_matakuliah')->on('matakuliah')->onDelete('cascade');
