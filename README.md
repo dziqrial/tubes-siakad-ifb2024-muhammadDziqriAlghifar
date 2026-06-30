@@ -1,59 +1,67 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# SIAKAD UTAS - Sistem Informasi Akademik Sederhana
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplikasi web berbasis Laravel yang mensimulasikan Sistem Informasi Akademik (SIAKAD) sederhana untuk memenuhi Tugas Besar mata kuliah Web II. Aplikasi ini mendukung arsitektur Multi-role (Admin & Mahasiswa) menggunakan Spatie Roles & Permissions, serta menerapkan validasi form yang ketat dan Eloquent Relationship.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 👤 Identitas Mahasiswa
+* **Nama:** Muhammad Dziqri Alghifar
+* **NPM:** 5520124050
+* **Kelas:** Teknik Informatika - IF-B 2024
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🌐 Link Deployment / Hosting
+Aplikasi Tidak di deploy
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## 🚀 Penjelasan Fitur Aplikasi
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Aplikasi SIAKAD UTAS ini memiliki beberapa fitur utama yang terbagi berdasarkan hak akses pengguna:
 
-## Laravel Sponsors
+### 1. Authentication & Authorization
+* **Login & Logout:** Pengamanan hak akses akun menggunakan middleware Laravel Auth yang langsung mengarah ke halaman login utama saat aplikasi diakses.
+* **Role Admin:** Hak akses penuh untuk mengelola seluruh data master akademik (CRUD).
+* **Role Mahasiswa:** Hak akses terbatas hanya untuk melakukan simulasi pengisian KRS dan melihat jadwal kuliah.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 2. Manajemen Data Admin (CRUD Data Master)
+* **Kelola Data Dosen:** Menambah, melihat, mengupdate, dan menghapus data identitas dosen (NIDN & Nama) secara real-time.
+* **Kelola Data Mahasiswa:** Manajemen data mahasiswa serta plotting Dosen Wali berdasarkan data dosen pengampu yang tersedia.
+* **Kelola Data Mata Kuliah:** Manajemen struktur kurikulum, penamaan mata kuliah, beserta alokasi bobot beban SKS ambolan.
+* **Kelola Data Jadwal:** Menerbitkan jadwal perkuliahan dengan merelasikan data Mata Kuliah, Dosen Pengajar, Hari, Jam, dan Kelas.
 
-### Premium Partners
+### 3. Modul Mahasiswa (Kartu Rencana Studi)
+* **Pengisian KRS:** Mahasiswa dapat memilih kelas jadwal kuliah yang tersedia dan melakukan *Apply KRS* ke sistem database.
+* **Lihat & Drop KRS:** Menampilkan daftar KRS yang sukses diambil secara real-time dan menyediakan opsi pembatalan kelas (*Drop* mata kuliah).
+* **Export KRS (Bonus Tambahan):** Fitur untuk mencetak atau mengunduh lembar Kartu Rencana Studi ke dalam bentuk dokumen PDF.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+---
 
-## Contributing
+## 🛠️ Spesifikasi Ketentuan Teknis
+Aplikasi ini dibangun menggunakan arsitektur bawaan Laravel dengan memanfaatkan:
+* **Database Migration:** Untuk menyusun dan membangun struktur skema tabel basis data akademik secara konsisten.
+* **Database Seeder (Modular):** Menyediakan 5 sub-seeder otomatis (Role, Dosen, Mahasiswa, Matakuliah, Jadwal) sebagai pancingan data awal sistem.
+* **Eloquent Relationship:** Menerapkan relasi database lintas tabel (One-to-Many & Many-to-Many) untuk menampilkan informasi terintegrasi pada antarmuka.
+* **Form Validation:** Proteksi keamanan inputan pada setiap form transaksi data untuk menghindari eror runtime database.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## 📸 Screenshots Aplikasi
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Berikut adalah dokumentasi visual antarmuka dari aplikasi SIAKAD UTAS:
 
-## Security Vulnerabilities
+### 1. Halaman Login (Elegant Dark Mode)
+![Login](screenshots/login.png)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 2. Halaman Dashboard Admin
+![Dashboard Admin](screenshots/dashboard_admin.png)
 
-## License
+### 3. Halaman Kelola Mata Kuliah (CRUD)
+![Kelola Mata Kuliah](screenshots/kelola_matakuliah.png)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 4. Halaman Kelola Jadwal Kuliah (CRUD)
+![Kelola Jadwal](screenshots/kelola_jadwal.png)
+
+### 5. Halaman Pengisian KRS (Sisi Mahasiswa)
+![Pengisian KRS](screenshots/pengisian_krs.png)
